@@ -12,7 +12,17 @@ export default function Home() {
       <AudienceCards />
       <HowItWorks />
       <Benefits />
-      <PwaInstallGuide />
+
+      <div className="hidden md:block">
+        <PwaInstallGuide />
+      </div>
+      <section className="md:hidden bg-brand-grey-light py-16 text-center px-4">
+        <h2 className="text-2xl font-bold text-brand-text mb-3">התקן את האפליקציה בחינם</h2>
+        <p className="text-brand-grey-text max-w-sm mx-auto">
+          לחץ על הכפתור המתאים ← עקוב אחרי ההוראות ← האפליקציה מותקנת!
+        </p>
+      </section>
+
       <ContactForm />
     </>
   );
