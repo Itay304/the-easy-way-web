@@ -1,41 +1,12 @@
 import { useEffect, useState } from 'react';
-import { Navigate } from 'react-router-dom';
 import {
   onAuthStateChanged,
   signInWithEmailAndPassword,
   signOut,
 } from 'firebase/auth';
 import { auth } from '../firebase.js';
-import { isStandalone } from '../pwaInstall.js';
-import InstallInstructions from './InstallInstructions.jsx';
 
-const MOBILE_BREAKPOINT = 768;
-const INSTALL_FLOW_KEY = 'easyway_install_flow';
-
-function useIsNarrow() {
-  const [isNarrow, setIsNarrow] = useState(() => window.innerWidth < MOBILE_BREAKPOINT);
-
-  useEffect(() => {
-    function onResize() {
-      setIsNarrow(window.innerWidth < MOBILE_BREAKPOINT);
-    }
-    window.addEventListener('resize', onResize);
-    return () => window.removeEventListener('resize', onResize);
-  }, []);
-
-  return isNarrow;
-}
-
-export default function AuthPortal({ role, title, dashboardLabel, roleLabel }) {
-  const isNarrow = useIsNarrow();
-  const [cameFromInstallFlow] = useState(
-    () => sessionStorage.getItem(INSTALL_FLOW_KEY) === role,
-  );
-
-  useEffect(() => {
-    if (cameFromInstallFlow) sessionStorage.removeItem(INSTALL_FLOW_KEY);
-  }, [cameFromInstallFlow]);
-
+export default function AuthPortal({ title, dashboardLabel, roleLabel }) {
   const [user, setUser] = useState(undefined); // undefined = loading, null = signed out
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -56,18 +27,6 @@ export default function AuthPortal({ role, title, dashboardLabel, roleLabel }) {
     } finally {
       setSubmitting(false);
     }
-  }
-
-  // דף זה חסום בגלישה רגילה במובייל (768px ומטה) — משתמשי מובייל מופנים
-  // להתקנת ה-PWA מה-Hero במקום. חריגים: אפליקציה מותקנת שכבר רצה במצב
-  // standalone (start_url מוביל לכאן ישירות), או ניווט שהגיע מכפתור
-  // ההתקנה עצמו (cameFromInstallFlow) — לצורך "הוסף למסך הבית" ב-iOS.
-  if (isNarrow && !isStandalone() && !cameFromInstallFlow) {
-    return <Navigate to="/" replace />;
-  }
-
-  if (isNarrow && cameFromInstallFlow) {
-    return <InstallInstructions />;
   }
 
   if (user === undefined) {
