@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "site": "the-easy-way",
+    "target": "the-easy-way",
     "public": "dist",
     "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
     "rewrites": [

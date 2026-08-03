@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "my-book-club-site"
+  },
+  "targets": {
+    "my-book-club-site": {
+      "hosting": {
+        "the-easy-way": [
+          "the-easy-way"
+        ]
+      }
+    }
   }
 }
