@@ -1,10 +1,10 @@
-import { Link } from 'react-router-dom';
 import useIsNarrow from '../hooks/useIsNarrow.js';
+import { TEACHER_APP_URL, STUDENT_APP_URL } from '../lib/appLinks.js';
 
 export default function Hero() {
   const isNarrow = useIsNarrow();
-  const teacherTo = isNarrow ? '/app/teacher' : '/teacher';
-  const studentTo = isNarrow ? '/app/student' : '/student';
+  const teacherLabel = isNarrow ? 'אני מורה — התקן אפליקציה' : 'אני מורה — התחל עכשיו';
+  const studentLabel = isNarrow ? 'אני תלמיד — התקן אפליקציה' : 'כניסת תלמיד';
 
   return (
     <section className="bg-gradient-to-b from-brand-green/10 to-white">
@@ -21,18 +21,18 @@ export default function Hero() {
           לימוד אוצר מילים באנגלית — בדרך הנכונה
         </p>
         <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
-          <Link
-            to={teacherTo}
+          <a
+            href={TEACHER_APP_URL}
             className="w-full sm:w-auto px-8 py-4 rounded-xl bg-brand-green text-white font-bold text-lg shadow-lg hover:bg-brand-green-dark transition"
           >
-            אני מורה
-          </Link>
-          <Link
-            to={studentTo}
+            {teacherLabel}
+          </a>
+          <a
+            href={STUDENT_APP_URL}
             className="w-full sm:w-auto px-8 py-4 rounded-xl bg-white border-2 border-brand-turquoise text-brand-turquoise font-bold text-lg hover:bg-brand-turquoise/10 transition"
           >
-            אני תלמיד
-          </Link>
+            {studentLabel}
+          </a>
         </div>
       </div>
     </section>

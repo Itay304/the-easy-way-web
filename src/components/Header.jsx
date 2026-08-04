@@ -1,10 +1,11 @@
 import { Link } from 'react-router-dom';
 import useIsNarrow from '../hooks/useIsNarrow.js';
+import { TEACHER_APP_URL, STUDENT_APP_URL } from '../lib/appLinks.js';
 
 export default function Header() {
   const isNarrow = useIsNarrow();
-  const teacherTo = isNarrow ? '/app/teacher' : '/teacher';
-  const studentTo = isNarrow ? '/app/student' : '/student';
+  const teacherLabel = isNarrow ? 'אני מורה — התקן אפליקציה' : 'אני מורה — התחל עכשיו';
+  const studentLabel = isNarrow ? 'אני תלמיד — התקן אפליקציה' : 'כניסת תלמיד';
 
   return (
     <header className="sticky top-0 z-40 bg-white/90 backdrop-blur border-b border-black/5">
@@ -14,18 +15,18 @@ export default function Header() {
           <span className="text-lg font-bold text-brand-text">The Easy Way</span>
         </Link>
         <nav className="flex items-center gap-2 sm:gap-3">
-          <Link
-            to={teacherTo}
+          <a
+            href={TEACHER_APP_URL}
             className="px-3 py-2 sm:px-4 rounded-lg text-sm font-semibold text-brand-green hover:bg-brand-green/10 transition"
           >
-            אני מורה
-          </Link>
-          <Link
-            to={studentTo}
+            {teacherLabel}
+          </a>
+          <a
+            href={STUDENT_APP_URL}
             className="px-3 py-2 sm:px-4 rounded-lg text-sm font-semibold text-white bg-brand-turquoise hover:opacity-90 transition"
           >
-            אני תלמיד
-          </Link>
+            {studentLabel}
+          </a>
         </nav>
       </div>
     </header>
