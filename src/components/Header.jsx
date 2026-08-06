@@ -21,6 +21,14 @@ export default function Header() {
           >
             {teacherLabel}
           </a>
+          {!isNarrow && (
+            <a
+              href={TEACHER_APP_URL}
+              className="px-3 py-2 sm:px-4 rounded-lg text-sm font-semibold text-brand-text hover:bg-black/5 transition"
+            >
+              כניסת מנהל
+            </a>
+          )}
           <a
             href={STUDENT_APP_URL}
             className="px-3 py-2 sm:px-4 rounded-lg text-sm font-semibold text-white bg-brand-turquoise hover:opacity-90 transition"
