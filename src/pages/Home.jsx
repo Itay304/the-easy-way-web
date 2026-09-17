@@ -3,6 +3,7 @@ import AudienceCards from '../components/AudienceCards.jsx';
 import HowItWorks from '../components/HowItWorks.jsx';
 import Benefits from '../components/Benefits.jsx';
 import PwaInstallGuide from '../components/PwaInstallGuide.jsx';
+import PilotPricing from '../components/PilotPricing.jsx';
 import ContactForm from '../components/ContactForm.jsx';
 
 export default function Home() {
@@ -22,6 +23,8 @@ export default function Home() {
           לחץ על הכפתור המתאים ← עקוב אחרי ההוראות ← האפליקציה מותקנת!
         </p>
       </section>
+
+      <PilotPricing />
 
       <ContactForm />
     </>
