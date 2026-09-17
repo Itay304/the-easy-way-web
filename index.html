@@ -7,21 +7,23 @@
     <title>The Easy Way | לימוד אנגלית לבתי ספר</title>
     <meta
       name="description"
-      content="The Easy Way — פלטפורמת לימוד אוצר מילים באנגלית לבתי ספר, מבוססת על באנדים של משרד החינוך. מורים עוקבים אחר התקדמות התלמידים, שולחים משימות ומנהלים כיתות בקלות."
+      content="EasyLex — פלטפורמת לימוד אנגלית לבתי ספר בישראל. 8 מודולי תרגול, 5,040 מילים לפי תכנית משרד החינוך, לוח בקרה למורים."
     />
+    <meta name="keywords" content="לימוד אנגלית, אנגלית לבית ספר, EasyLex, אוצר מילים, משרד החינוך, תרגול אנגלית" />
     <link rel="canonical" href="https://theeasywayapp.co.il/" />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="The Easy Way" />
-    <meta property="og:title" content="The Easy Way | לימוד אנגלית לבתי ספר" />
+    <meta property="og:title" content="EasyLex — לומדים אנגלית בדרך הנכונה" />
     <meta
       property="og:description"
-      content="פלטפורמת לימוד אוצר מילים באנגלית לבתי ספר — מבוססת על באנדים של משרד החינוך, מעקב התקדמות בזמן אמת."
+      content="פלטפורמת לימוד אנגלית לבתי ספר בישראל. 8 מודולי תרגול, 5,040 מילים, לוח בקרה למורים."
     />
     <meta property="og:image" content="https://theeasywayapp.co.il/icons/icon-512.png" />
     <meta property="og:url" content="https://theeasywayapp.co.il/" />
     <meta property="og:locale" content="he_IL" />
+    <meta name="twitter:card" content="summary_large_image" />
 
     <!-- PWA -->
     <link rel="manifest" href="/manifest.json" />
@@ -39,5 +41,22 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "EasyLex",
+        "description": "פלטפורמת לימוד אנגלית לבתי ספר בישראל",
+        "url": "https://theeasywayapp.co.il",
+        "applicationCategory": "EducationalApplication",
+        "inLanguage": "he",
+        "offers": {
+          "@type": "Offer",
+          "price": "2500",
+          "priceCurrency": "ILS"
+        },
+        "operatingSystem": "Web, Android"
+      }
+    </script>
   </body>
 </html>
