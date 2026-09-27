@@ -1,16 +1,18 @@
+import { GraduationCap, Presentation, Building2 } from 'lucide-react';
+
 const AUDIENCES = [
   {
-    icon: '🎓',
+    icon: GraduationCap,
     title: 'תלמיד',
     text: 'תרגל את המילים שהמורה קבע, עקוב אחרי ההתקדמות שלך.',
   },
   {
-    icon: '🧑‍🏫',
+    icon: Presentation,
     title: 'מורה',
     text: 'עקוב אחרי כל תלמיד, שלח משימות, ראה מי מתקדם.',
   },
   {
-    icon: '🏫',
+    icon: Building2,
     title: 'בית ספר',
     text: 'פלטפורמה מלאה לכל הכיתות, מבוססת על באנדים של משרד החינוך.',
   },
@@ -26,7 +28,9 @@ export default function AudienceCards() {
             key={a.title}
             className="rounded-2xl border border-black/5 bg-white shadow-sm hover:shadow-md transition p-8 text-center"
           >
-            <div className="text-4xl mb-4">{a.icon}</div>
+            <div className="mx-auto mb-4 h-14 w-14 rounded-full bg-brand-turquoise/10 text-brand-turquoise flex items-center justify-center">
+              <a.icon size={28} strokeWidth={2} />
+            </div>
             <h3 className="text-xl font-bold text-brand-text mb-2">{a.title}</h3>
             <p className="text-brand-grey-text">{a.text}</p>
           </div>
