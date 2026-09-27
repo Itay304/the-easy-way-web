@@ -47,7 +47,7 @@ export default function ContactForm() {
           <button
             type="submit"
             disabled={state.submitting}
-            className="w-full py-4 rounded-xl bg-brand-green text-white font-bold text-lg hover:bg-brand-green-dark transition disabled:opacity-60"
+            className="w-full py-4 rounded-xl bg-brand-turquoise text-white font-bold text-lg hover:opacity-90 transition disabled:opacity-60"
           >
             {state.submitting ? 'שולח...' : 'שלח'}
           </button>

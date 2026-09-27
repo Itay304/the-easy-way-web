@@ -7,7 +7,7 @@ export default function Hero() {
   const studentLabel = isNarrow ? 'אני תלמיד — התקן אפליקציה' : 'כניסת תלמיד';
 
   return (
-    <section className="bg-gradient-to-b from-brand-green/10 to-white">
+    <section className="bg-gradient-to-b from-brand-turquoise/10 to-white">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 py-16 sm:py-24 text-center">
         <img
           src="/icons/icon-192.png"
@@ -23,7 +23,7 @@ export default function Hero() {
         <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
           <a
             href={TEACHER_APP_URL}
-            className="w-full sm:w-auto px-8 py-4 rounded-xl bg-brand-green text-white font-bold text-lg shadow-lg hover:bg-brand-green-dark transition"
+            className="w-full sm:w-auto px-8 py-4 rounded-xl bg-brand-turquoise text-white font-bold text-lg shadow-lg hover:opacity-90 transition"
           >
             {teacherLabel}
           </a>
