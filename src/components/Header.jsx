@@ -11,8 +11,8 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-40 bg-white/90 backdrop-blur border-b border-black/5">
       {/* מתחת ל-768px (isNarrow, אותו סף בדיוק כמו useIsNarrow.js): לוגו
-      בשורה אחת + שורת כפתורים נפרדת מתחתיו, כדי שאף אחד מהם לא יידחס/יישבר
-      (audit/REPORT.md #2). מ-md ומעלה — שורה אחת כמו קודם. */}
+      בשורה אחת + שורת כפתורים נפרדת מתחתיו, כדי שאף אחד מהם לא יידחס/יישבר.
+      מ-md ומעלה — שורה אחת כמו קודם. */}
       <div className="mx-auto max-w-6xl px-4 sm:px-6 py-3 md:h-16 md:py-0 flex flex-col md:flex-row items-center md:justify-between gap-3 md:gap-0">
         <Link to="/" className="flex items-center gap-2 self-start md:self-auto shrink-0">
           <img src="/icons/icon-192.png" alt="The Easy Way" className="h-8 w-8 md:h-9 md:w-9 rounded-lg shrink-0" />
