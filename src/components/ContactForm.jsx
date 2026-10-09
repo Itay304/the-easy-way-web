@@ -23,16 +23,16 @@ export default function ContactForm() {
       ) : (
         <form onSubmit={handleSubmit} className="space-y-4">
           <input id="name" name="name" type="text" required placeholder="שם מלא" className={inputClasses} />
-          <ValidationError prefix="שם" field="name" errors={state.errors} className="text-red-600 text-sm" />
+          <ValidationError prefix="שם" field="name" errors={state.errors} className="text-brand-error text-sm" />
 
           <input id="school" name="school" type="text" placeholder="בית ספר" className={inputClasses} />
-          <ValidationError prefix="בית ספר" field="school" errors={state.errors} className="text-red-600 text-sm" />
+          <ValidationError prefix="בית ספר" field="school" errors={state.errors} className="text-brand-error text-sm" />
 
           <input id="phone" name="phone" type="tel" placeholder="טלפון" className={inputClasses} />
-          <ValidationError prefix="טלפון" field="phone" errors={state.errors} className="text-red-600 text-sm" />
+          <ValidationError prefix="טלפון" field="phone" errors={state.errors} className="text-brand-error text-sm" />
 
           <input id="email" name="email" type="email" required placeholder="אימייל" className={inputClasses} />
-          <ValidationError prefix="אימייל" field="email" errors={state.errors} className="text-red-600 text-sm" />
+          <ValidationError prefix="אימייל" field="email" errors={state.errors} className="text-brand-error text-sm" />
 
           <textarea
             id="message"
@@ -42,7 +42,7 @@ export default function ContactForm() {
             placeholder="הודעה"
             className={inputClasses}
           />
-          <ValidationError prefix="הודעה" field="message" errors={state.errors} className="text-red-600 text-sm" />
+          <ValidationError prefix="הודעה" field="message" errors={state.errors} className="text-brand-error text-sm" />
 
           <button
             type="submit"
@@ -53,7 +53,7 @@ export default function ContactForm() {
           </button>
 
           {state.errors && state.errors.getFormErrors().length > 0 && (
-            <p className="text-red-600 text-sm text-center">
+            <p className="text-brand-error text-sm text-center">
               משהו השתבש — נסו שוב או צרו קשר ישירות במייל.
             </p>
           )}
