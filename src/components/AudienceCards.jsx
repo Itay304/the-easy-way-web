@@ -29,7 +29,7 @@ export default function AudienceCards() {
             className="rounded-2xl border border-black/5 bg-white shadow-sm hover:shadow-md transition p-8 text-center"
           >
             <div className="mx-auto mb-4 h-14 w-14 rounded-full bg-brand-turquoise/10 text-brand-turquoise flex items-center justify-center">
-              <a.icon size={28} strokeWidth={2} />
+              <a.icon size={24} strokeWidth={2} />
             </div>
             <h3 className="text-xl font-bold text-brand-text mb-2">{a.title}</h3>
             <p className="text-brand-grey-text">{a.text}</p>
