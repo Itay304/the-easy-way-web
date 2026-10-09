@@ -16,18 +16,25 @@
   --color-brand-error: #dc2626;
   --color-brand-error-dark: #b91c1c;
 
-  --text-caption: 12px;
+  /* סולם טיפוגרפיה שיווקי — שונה בכוונה מהסולם הצפוף של האפליקציות
+     (app-teacher/app-student/app-admin): נגזר מהגדלים שכבר בפועל בשימוש
+     באתר הזה (hero/section/card/body), לא מועתק מהאפליקציות. למשל h1 כאן
+     36px (hero) לעומת 26px באפליקציות, ו-h2 כאן 30px לעומת 20px שם — אלה
+     שני סולמות עצמאיים לגמרי, בכוונה, לא טעות. h1 עדיין מקבל קפיצה ל-48px
+     ב-sm: ועוד (Hero.jsx: `text-h1 sm:text-5xl`) — הטוקן מגדיר רק את הערך
+     הבסיסי/מובייל, כמו שאר הסולם. */
+  --text-caption: 14px;
   --text-caption--line-height: 1.3;
-  --text-body-sm: 14px;
-  --text-body-sm--line-height: 1.35;
-  --text-body: 15px;
+  --text-body: 16px;
   --text-body--line-height: 1.5;
-  --text-body-lg: 17px;
+  --text-body-lg: 18px;
   --text-body-lg--line-height: 1.4;
+  --text-h3: 20px;
+  --text-h3--line-height: 1.3;
   --text-h2: 30px;
   --text-h2--line-height: 1.2;
-  --text-h1: 26px;
-  --text-h1--line-height: 1.2;
+  --text-h1: 36px;
+  --text-h1--line-height: 1.15;
 }
 
 html {
