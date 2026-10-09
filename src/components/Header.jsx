@@ -35,13 +35,13 @@ export default function Header() {
           )}
           <a
             href={TEACHER_APP_URL}
-            className="flex-1 md:flex-none text-center px-3 py-2 sm:px-4 rounded-lg text-sm font-semibold text-brand-turquoise-dark hover:bg-brand-turquoise/10 transition whitespace-nowrap"
+            className="flex-1 md:flex-none text-center px-3 py-2 sm:px-4 rounded-lg text-sm font-semibold text-brand-turquoise-dark hover:bg-brand-turquoise/10 transition md:whitespace-nowrap"
           >
             {teacherLabel}
           </a>
           <a
             href={STUDENT_APP_URL}
-            className="flex-1 md:flex-none text-center px-3 py-2 sm:px-4 rounded-lg text-sm font-semibold text-white bg-brand-turquoise hover:opacity-90 transition whitespace-nowrap"
+            className="flex-1 md:flex-none text-center px-3 py-2 sm:px-4 rounded-lg text-sm font-semibold text-white bg-brand-turquoise hover:opacity-90 transition md:whitespace-nowrap"
           >
             {studentLabel}
           </a>
