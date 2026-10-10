@@ -1,4 +1,5 @@
 import { Smartphone } from 'lucide-react';
+import Card from './ui/Card.jsx';
 
 const ANDROID_STEPS = [
   'פתח את האתר בכרום',
@@ -16,7 +17,7 @@ const IOS_STEPS = [
 
 function DeviceGuide({ title, warning, steps }) {
   return (
-    <div className="rounded-2xl border border-black/5 bg-white shadow-sm p-8 text-right">
+    <Card padding="p-8" className="text-right">
       <div className="flex items-center gap-3 mb-2">
         <div className="h-10 w-10 rounded-full bg-brand-turquoise/10 text-brand-turquoise flex items-center justify-center shrink-0">
           <Smartphone size={20} strokeWidth={2} />
@@ -34,7 +35,7 @@ function DeviceGuide({ title, warning, steps }) {
           </li>
         ))}
       </ol>
-    </div>
+    </Card>
   );
 }
 

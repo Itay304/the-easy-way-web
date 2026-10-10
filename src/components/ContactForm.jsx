@@ -1,9 +1,8 @@
 import { useForm, ValidationError } from '@formspree/react';
+import Input from './ui/Input.jsx';
+import Button from './ui/Button.jsx';
 
 const FORMSPREE_FORM_ID = 'mrennjyz';
-
-const inputClasses =
-  'w-full rounded-xl border border-black/10 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-brand-turquoise';
 
 export default function ContactForm() {
   const [state, handleSubmit] = useForm(FORMSPREE_FORM_ID);
@@ -22,16 +21,16 @@ export default function ContactForm() {
         </div>
       ) : (
         <form onSubmit={handleSubmit} className="space-y-4">
-          <input id="name" name="name" type="text" required placeholder="שם מלא" className={inputClasses} />
+          <Input id="name" name="name" type="text" required placeholder="שם מלא" />
           <ValidationError prefix="שם" field="name" errors={state.errors} className="text-brand-error text-sm" />
 
-          <input id="school" name="school" type="text" placeholder="בית ספר" className={inputClasses} />
+          <Input id="school" name="school" type="text" placeholder="בית ספר" />
           <ValidationError prefix="בית ספר" field="school" errors={state.errors} className="text-brand-error text-sm" />
 
-          <input id="phone" name="phone" type="tel" placeholder="טלפון" className={inputClasses} />
+          <Input id="phone" name="phone" type="tel" placeholder="טלפון" />
           <ValidationError prefix="טלפון" field="phone" errors={state.errors} className="text-brand-error text-sm" />
 
-          <input id="email" name="email" type="email" required placeholder="אימייל" className={inputClasses} />
+          <Input id="email" name="email" type="email" required placeholder="אימייל" />
           <ValidationError prefix="אימייל" field="email" errors={state.errors} className="text-brand-error text-sm" />
 
           <textarea
@@ -40,17 +39,13 @@ export default function ContactForm() {
             required
             rows={4}
             placeholder="הודעה"
-            className={inputClasses}
+            className="w-full rounded-xl border border-black/10 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-brand-turquoise"
           />
           <ValidationError prefix="הודעה" field="message" errors={state.errors} className="text-brand-error text-sm" />
 
-          <button
-            type="submit"
-            disabled={state.submitting}
-            className="w-full py-4 rounded-xl bg-brand-turquoise text-white font-bold text-lg hover:opacity-90 transition disabled:opacity-60"
-          >
+          <Button type="submit" disabled={state.submitting} className="w-full disabled:opacity-60">
             {state.submitting ? 'שולח...' : 'שלח'}
-          </button>
+          </Button>
 
           {state.errors && state.errors.getFormErrors().length > 0 && (
             <p className="text-brand-error text-sm text-center">

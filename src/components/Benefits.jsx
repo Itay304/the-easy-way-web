@@ -1,4 +1,5 @@
 import { BookOpen, TrendingUp, Smartphone, Settings } from 'lucide-react';
+import Card from './ui/Card.jsx';
 
 const BENEFITS = [
   { icon: BookOpen, text: 'מבוסס על באנדים של משרד החינוך' },
@@ -13,15 +14,12 @@ export default function Benefits() {
       <h2 className="text-3xl font-bold text-center text-brand-text mb-10">יתרונות</h2>
       <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {BENEFITS.map((b) => (
-          <div
-            key={b.text}
-            className="rounded-2xl border border-black/5 bg-white shadow-sm p-6 text-center"
-          >
+          <Card key={b.text} className="text-center">
             <div className="mx-auto mb-3 h-12 w-12 rounded-full bg-brand-turquoise/10 text-brand-turquoise flex items-center justify-center">
               <b.icon size={24} strokeWidth={2} />
             </div>
             <p className="text-brand-text font-medium">{b.text}</p>
-          </div>
+          </Card>
         ))}
       </div>
     </section>

@@ -1,5 +1,6 @@
 import useIsNarrow from '../hooks/useIsNarrow.js';
 import { TEACHER_APP_URL, STUDENT_APP_URL } from '../lib/appLinks.js';
+import Button from './ui/Button.jsx';
 
 export default function Hero() {
   const isNarrow = useIsNarrow();
@@ -14,25 +15,19 @@ export default function Hero() {
           alt="The Easy Way — לוגו"
           className="mx-auto h-20 w-20 rounded-2xl shadow-md mb-6"
         />
-        <h1 className="text-4xl sm:text-5xl font-extrabold text-brand-text leading-tight">
+        <h1 className="text-h1 sm:text-5xl font-extrabold text-brand-text leading-tight">
           The Easy Way
         </h1>
-        <p className="mt-4 text-lg sm:text-xl text-brand-grey-text max-w-2xl mx-auto">
+        <p className="mt-4 text-body-lg sm:text-xl text-brand-grey-text max-w-2xl mx-auto">
           לימוד אוצר מילים באנגלית — בדרך הנכונה
         </p>
         <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
-          <a
-            href={TEACHER_APP_URL}
-            className="w-full sm:w-auto px-8 py-4 rounded-xl bg-brand-turquoise text-white font-bold text-lg shadow-lg hover:opacity-90 transition"
-          >
+          <Button as="a" href={TEACHER_APP_URL} className="w-full sm:w-auto shadow-lg">
             {teacherLabel}
-          </a>
-          <a
-            href={STUDENT_APP_URL}
-            className="w-full sm:w-auto px-8 py-4 rounded-xl bg-white border-2 border-brand-turquoise text-brand-turquoise font-bold text-lg hover:bg-brand-turquoise/10 transition"
-          >
+          </Button>
+          <Button as="a" href={STUDENT_APP_URL} variant="secondary" className="w-full sm:w-auto">
             {studentLabel}
-          </a>
+          </Button>
         </div>
       </div>
     </section>

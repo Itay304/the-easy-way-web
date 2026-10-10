@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { Building2 } from 'lucide-react';
 import useIsNarrow from '../hooks/useIsNarrow.js';
 import { TEACHER_APP_URL, STUDENT_APP_URL } from '../lib/appLinks.js';
+import Button from './ui/Button.jsx';
 
 export default function Header() {
   const isNarrow = useIsNarrow();
@@ -25,26 +26,28 @@ export default function Header() {
             // עם החשבון שלו ורואה ממשק מנהל בתוך אותה אפליקציה. בעתיד יהיה
             // דף/כתובת נפרדים למנהל; לעת עתה זה מספיק כי ההפרדה היא ב-role,
             // לא ב-URL.
-            <a
-              href={TEACHER_APP_URL}
-              className="flex items-center gap-1.5 px-3 py-2 sm:px-4 rounded-lg text-sm font-semibold text-brand-text hover:bg-black/5 transition whitespace-nowrap"
-            >
+            <Button as="a" href={TEACHER_APP_URL} variant="ghost" size="sm" className="whitespace-nowrap">
               <Building2 size={16} />
               כניסת מנהל
-            </a>
+            </Button>
           )}
-          <a
+          <Button
+            as="a"
             href={TEACHER_APP_URL}
-            className="flex-1 md:flex-none text-center px-3 py-2 sm:px-4 rounded-lg text-sm font-semibold text-brand-turquoise-dark hover:bg-brand-turquoise/10 transition md:whitespace-nowrap"
+            variant="ghost"
+            size="sm"
+            className="flex-1 md:flex-none !text-brand-turquoise-dark hover:!bg-brand-turquoise/10 md:whitespace-nowrap"
           >
             {teacherLabel}
-          </a>
-          <a
+          </Button>
+          <Button
+            as="a"
             href={STUDENT_APP_URL}
-            className="flex-1 md:flex-none text-center px-3 py-2 sm:px-4 rounded-lg text-sm font-semibold text-white bg-brand-turquoise hover:opacity-90 transition md:whitespace-nowrap"
+            size="sm"
+            className="flex-1 md:flex-none md:whitespace-nowrap"
           >
             {studentLabel}
-          </a>
+          </Button>
         </nav>
       </div>
     </header>

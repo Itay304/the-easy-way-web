@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Check } from 'lucide-react';
+import Button from './ui/Button.jsx';
 
 const INCLUDED = [
   'גישה מלאה ל-8 מודולי תרגול',
@@ -68,20 +69,16 @@ export default function PilotPricing() {
             </span>
           </label>
 
-          <button
+          <Button
             type="button"
             disabled={!agreed}
             onClick={() => {
               window.location.href = MAILTO_HREF;
             }}
-            className={`w-full py-4 rounded-xl font-bold text-lg transition ${
-              agreed
-                ? 'bg-brand-turquoise text-white hover:opacity-90 shadow-lg'
-                : 'bg-brand-grey-light text-brand-grey-text cursor-not-allowed'
-            }`}
+            className="w-full shadow-lg"
           >
             הצטרפות לפיילוט
-          </button>
+          </Button>
         </div>
       </div>
     </section>
