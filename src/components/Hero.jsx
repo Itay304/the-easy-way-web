@@ -18,7 +18,7 @@ export default function Hero() {
         <h1 className="text-h1 sm:text-5xl font-extrabold text-brand-text leading-tight">
           The Easy Way
         </h1>
-        <p className="mt-4 text-body-lg sm:text-xl text-brand-grey-text max-w-2xl mx-auto">
+        <p className="mt-4 text-body-lg sm:text-h3 text-brand-grey-text max-w-2xl mx-auto">
           לימוד אוצר מילים באנגלית — בדרך הנכונה
         </p>
         <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">

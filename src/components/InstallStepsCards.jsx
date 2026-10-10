@@ -22,13 +22,13 @@ function DeviceGuide({ title, warning, steps }) {
         <div className="h-10 w-10 rounded-full bg-brand-turquoise/10 text-brand-turquoise flex items-center justify-center shrink-0">
           <Smartphone size={20} strokeWidth={2} />
         </div>
-        <h3 className="text-xl font-bold text-brand-text">{title}</h3>
+        <h3 className="text-h3 font-bold text-brand-text">{title}</h3>
       </div>
-      {warning && <p className="text-sm font-semibold text-brand-turquoise mb-4">{warning}</p>}
+      {warning && <p className="text-caption font-semibold text-brand-turquoise mb-4">{warning}</p>}
       <ol className="space-y-3">
         {steps.map((step, i) => (
           <li key={step} className="flex items-start gap-3">
-            <span className="flex-shrink-0 h-7 w-7 rounded-full bg-brand-turquoise/10 text-brand-turquoise font-bold text-sm flex items-center justify-center">
+            <span className="flex-shrink-0 h-7 w-7 rounded-full bg-brand-turquoise/10 text-brand-turquoise font-bold text-caption flex items-center justify-center">
               {i + 1}
             </span>
             <span className="text-brand-grey-text pt-0.5">{step}</span>

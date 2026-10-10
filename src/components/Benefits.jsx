@@ -11,7 +11,7 @@ const BENEFITS = [
 export default function Benefits() {
   return (
     <section className="mx-auto max-w-6xl px-4 sm:px-6 py-16">
-      <h2 className="text-3xl font-bold text-center text-brand-text mb-10">יתרונות</h2>
+      <h2 className="text-h2 font-bold text-center text-brand-text mb-10">יתרונות</h2>
       <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {BENEFITS.map((b) => (
           <Card key={b.text} className="text-center">

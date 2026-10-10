@@ -17,7 +17,7 @@ export default function Header() {
       <div className="mx-auto max-w-6xl px-4 sm:px-6 py-3 md:h-16 md:py-0 flex flex-col md:flex-row items-center md:justify-between gap-3 md:gap-0">
         <Link to="/" className="flex items-center gap-2 self-start md:self-auto shrink-0">
           <img src="/icons/icon-192.png" alt="The Easy Way" className="h-8 w-8 md:h-9 md:w-9 rounded-lg shrink-0" />
-          <span className="text-base md:text-lg font-bold text-brand-text whitespace-nowrap">The Easy Way</span>
+          <span className="text-body md:text-body-lg font-bold text-brand-text whitespace-nowrap">The Easy Way</span>
         </Link>
         {/* סדר: מנהל / מורה / תלמיד — המנהל הוא מי שמחליט אם לרכוש. */}
         <nav className="flex items-center gap-2 sm:gap-3 w-full md:w-auto justify-center md:justify-end">

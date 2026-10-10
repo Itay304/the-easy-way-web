@@ -25,17 +25,17 @@ export default function PilotPricing() {
 
   return (
     <section className="mx-auto max-w-3xl px-4 sm:px-6 py-16">
-      <h2 className="text-3xl font-bold text-center text-brand-text mb-10">פיילוט מורחב</h2>
+      <h2 className="text-h2 font-bold text-center text-brand-text mb-10">פיילוט מורחב</h2>
 
       <div className="rounded-3xl bg-gradient-to-br from-brand-turquoise to-brand-turquoise-dark p-1 shadow-xl">
         <div className="rounded-[22px] bg-white p-8 sm:p-10">
           <div className="text-center mb-6">
-            <span className="inline-block rounded-full bg-brand-turquoise/10 text-brand-turquoise font-bold text-sm px-4 py-1.5 mb-4">
+            <span className="inline-block rounded-full bg-brand-turquoise/10 text-brand-turquoise font-bold text-caption px-4 py-1.5 mb-4">
               מחיר השקה מיוחד
             </span>
             <div className="flex items-center justify-center gap-3 flex-wrap">
               <span className="text-2xl text-brand-grey-text line-through">5,000 ₪</span>
-              <span className="text-4xl font-extrabold text-brand-text">2,500 ₪ לשנה</span>
+              <span className="text-h1 font-extrabold text-brand-text">2,500 ₪ לשנה</span>
             </div>
             <p className="text-brand-grey-text mt-2">לשנת לימודים מלאה למוסד</p>
           </div>
@@ -56,7 +56,7 @@ export default function PilotPricing() {
               onChange={(e) => setAgreed(e.target.checked)}
               className="mt-1 h-5 w-5 shrink-0 rounded border-black/20 text-brand-turquoise focus:ring-brand-turquoise"
             />
-            <span className="text-sm text-brand-grey-text">
+            <span className="text-caption text-brand-grey-text">
               קראתי ואני מסכים/ה ל
               <a
                 href="/pilot-terms.pdf"
