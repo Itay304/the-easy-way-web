@@ -5,7 +5,7 @@ export default function PwaInstallGuide() {
     <section className="bg-brand-grey-light py-16">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <h2 className="text-h2 font-bold text-center text-brand-text mb-2">
-          התקן את האפליקציה בחינם
+          התקן את EasyLex בחינם
         </h2>
         <p className="text-center text-brand-grey-text mb-10">
           ללא הורדה מחנות אפליקציות — ישירות מהדפדפן

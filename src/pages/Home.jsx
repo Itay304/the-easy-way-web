@@ -18,7 +18,7 @@ export default function Home() {
         <PwaInstallGuide />
       </div>
       <section className="md:hidden bg-brand-grey-light py-16 text-center px-4">
-        <h2 className="text-h2 font-bold text-center text-brand-text mb-2">התקן את האפליקציה בחינם</h2>
+        <h2 className="text-h2 font-bold text-center text-brand-text mb-2">התקן את EasyLex בחינם</h2>
         <p className="text-brand-grey-text max-w-sm mx-auto">
           לחץ על הכפתור המתאים ← עקוב אחרי ההוראות ← האפליקציה מותקנת!
         </p>
