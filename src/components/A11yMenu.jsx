@@ -5,7 +5,7 @@ import { getPrefs, getServerPrefs, setPrefs, subscribe, TEXT_STEPS } from '../li
 
 // תפריט נגישות שלנו — בלי סקריפט חיצוני. כפתור קבוע בפינה השמאלית-תחתונה (ב-RTL), 52px.
 // החלון הוא <dialog> מודאלי: הדפדפן לוכד את הפוקוס בתוכו, Esc סוגר, והפוקוס חוזר לכפתור.
-const TEXT_LABELS = ['רגיל', 'גדול', 'גדול יותר', 'הכי גדול'];
+const TEXT_LABELS = ['רגיל', 'גדול', 'גדול יותר', 'גדול מאוד'];
 
 function Toggle({ icon: Icon, label, pressed, onClick }) {
   return (

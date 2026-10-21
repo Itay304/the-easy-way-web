@@ -68,7 +68,7 @@ export default function Accessibility() {
           </p>
           <p>
             אימייל:{' '}
-            <a href="mailto:silverquilleducation@gmail.com" dir="ltr" className="inline-flex min-h-11 max-w-full items-center break-all font-semibold text-ink underline underline-offset-4 hover:text-cover">
+            <a href="mailto:silverquilleducation@gmail.com" dir="ltr" className="inline-flex min-h-11 max-w-full items-center [overflow-wrap:anywhere] font-semibold text-ink underline underline-offset-4 hover:text-cover">
               silverquilleducation@gmail.com
             </a>
           </p>
