@@ -25,7 +25,7 @@ export function StudentsSection({ onWatch }) {
     <Section
       titleId="students-title"
       title="תלמידים חוזרים לתרגל — כי זה כיף."
-      sub="סבבים קצרים, משחק בין השאלות, ורצף ותגים שמחזירים אותם כל יום."
+      sub="סבבים קצרים, כל כמה שאלות — משחק אחר, ורצף ותגים שמחזירים אותם כל יום."
       cta={<WatchButton onWatch={onWatch} />}
       visual={
         <div className="flex items-end justify-center gap-4 pt-6 sm:gap-6">
