@@ -1,0 +1,3 @@
+Assistant font — Copyright 2010 The Assistant Project Authors (https://github.com/hafontia/Assistant).
+Licensed under the SIL Open Font License, Version 1.1 — https://openfontlicense.org
+Self-hosted copies of the Google Fonts "hebrew" and "latin" subsets (variable weight 200–800).
