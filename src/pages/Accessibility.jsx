@@ -26,23 +26,34 @@ export default function Accessibility() {
         <section>
           <h2 className="text-h3 font-bold text-ink">רמת הנגישות באתר</h2>
           <p className="mt-2">
-            האתר נבנה במטרה לעמוד בדרישות תקן ישראלי 5568 (המבוסס על הנחיות WCAG 2.0) ברמה AA. בין היתר:
+            האתר נבנה במטרה לעמוד בדרישות תקן ישראלי 5568 ברמה AA ובהנחיות WCAG 2.1 ברמה AA. בין היתר:
           </p>
           <ul className="mt-3 list-disc space-y-1 pr-6">
             <li>ניווט מלא במקלדת, עם סימון פוקוס גלוי.</li>
             <li>ניגודיות צבעים של 4.5:1 לפחות בטקסט רגיל.</li>
             <li>טקסט חלופי בעברית לתמונות ולסרטונים.</li>
             <li>מבנה כותרות היררכי ותמיכה מלאה בעברית ובכיוון מימין לשמאל.</li>
-            <li>כיבוד הגדרת "הפחתת תנועה" של מערכת ההפעלה — בלי אנימציות ובלי ניגון אוטומטי.</li>
+            <li>כיבוד הגדרת "הפחתת תנועה" ו"חיסכון בנתונים" של המכשיר — בלי אנימציות ובלי ניגון אוטומטי.</li>
+            <li>כפתור עצירה לכל סרטון שמתנגן לבד.</li>
             <li>התאמה למסכים בכל גודל, מטלפון ועד מחשב.</li>
           </ul>
+        </section>
+
+        <section>
+          <h2 className="text-h3 font-bold text-ink">תפריט הנגישות</h2>
+          <p className="mt-2">
+            בכל עמוד יש כפתור נגישות קבוע בפינה השמאלית התחתונה. התפריט מאפשר הגדלת טקסט בשלוש דרגות, ניגודיות
+            גבוהה, הדגשת קישורים, גופן קריא, עצירת אנימציות וסרטונים, ואיפוס ההגדרות. ההגדרות נשמרות בדפדפן שלכם
+            לביקור הבא. התפריט שלנו, ללא תוסף או סקריפט חיצוני, ונגיש במקלדת ובקורא מסך.
+          </p>
         </section>
 
         <section>
           <h2 className="text-h3 font-bold text-ink">רכיבים שאולי אינם נגישים במלואם</h2>
           <p className="mt-2">
             הסרטונים באתר מציגים את האפליקציה ללא קריינות; כל המסר מופיע בהם כטקסט על המסך, אך אין להם כתוביות
-            נפרדות. אם נתקלתם ברכיב שאינו נגיש — נשמח שתעדכנו אותנו.
+            נפרדות. בסרטון המלא יש מוזיקה ללא דיבור. סרטון הרקע בראש העמוד הוא קישוטי בלבד. אם נתקלתם ברכיב שאינו
+            נגיש — נשמח שתעדכנו אותנו.
           </p>
         </section>
 
@@ -57,7 +68,7 @@ export default function Accessibility() {
           </p>
           <p>
             אימייל:{' '}
-            <a href="mailto:silverquilleducation@gmail.com" dir="ltr" className="inline-flex min-h-11 items-center font-semibold text-ink underline underline-offset-4 hover:text-cover">
+            <a href="mailto:silverquilleducation@gmail.com" dir="ltr" className="inline-flex min-h-11 max-w-full items-center break-all font-semibold text-ink underline underline-offset-4 hover:text-cover">
               silverquilleducation@gmail.com
             </a>
           </p>
