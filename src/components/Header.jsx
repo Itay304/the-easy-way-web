@@ -39,7 +39,7 @@ export default function Header() {
   }, [open]);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-ink/10 bg-mist/95 backdrop-blur">
+    <header className="sticky top-0 z-40 border-b border-ink/10 bg-mist">
       <div className="mx-auto flex h-14 max-w-6xl items-center justify-between gap-3 px-4 sm:px-6 md:h-16">
         <Link to="/" className="flex min-h-11 items-center shrink-0" aria-label="Easylex — דף הבית">
           <img src="/logo-horizontal.svg" alt="Easylex" width="128" height="32" className="h-8 w-auto md:h-9" />
