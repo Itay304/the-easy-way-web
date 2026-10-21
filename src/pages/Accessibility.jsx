@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-// הצהרת נגישות בסיסית. השדות בסוגריים מרובעים [ ] — למילוי ע"י בעל האתר (איש קשר ותאריך).
+// הצהרת נגישות. פרטי רכז הנגישות והתאריך — לעדכן כאן כשמשתנים (זה העמוד היחיד באתר עם טלפון ואימייל).
 // לא לטעון כאן לעמידה מלאה בתקן בלי בדיקה מקצועית.
 export default function Accessibility() {
   useEffect(() => {
@@ -48,13 +48,23 @@ export default function Accessibility() {
 
         <section>
           <h2 className="text-h3 font-bold text-ink">פנייה בנושא נגישות</h2>
-          <p className="mt-2">רכז/ת הנגישות: [שם מלא]</p>
-          <p>טלפון: [מספר טלפון]</p>
-          <p>אימייל: [כתובת אימייל]</p>
-          <p className="mt-2">נשתדל לענות לכל פנייה בתוך [מספר] ימי עבודה.</p>
+          <p className="mt-2">רכז נגישות: איתי וייס</p>
+          <p>
+            טלפון:{' '}
+            <a href="tel:+972583237307" dir="ltr" className="inline-flex min-h-11 items-center font-semibold text-ink underline underline-offset-4 hover:text-cover">
+              058-323-7307
+            </a>
+          </p>
+          <p>
+            אימייל:{' '}
+            <a href="mailto:silverquilleducation@gmail.com" dir="ltr" className="inline-flex min-h-11 items-center font-semibold text-ink underline underline-offset-4 hover:text-cover">
+              silverquilleducation@gmail.com
+            </a>
+          </p>
+          <p className="mt-2">זמן מענה: עד 14 ימים</p>
         </section>
 
-        <p className="text-body text-ink/80">תאריך עדכון ההצהרה: [תאריך]</p>
+        <p className="text-body text-ink/80">תאריך עדכון ההצהרה: 21.10.2026</p>
       </div>
     </article>
   );
