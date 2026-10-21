@@ -50,6 +50,7 @@
           }
         ]
       }
-    ]
+    ],
+    "cleanUrls": true
   }
 }

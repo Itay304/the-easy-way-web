@@ -3,8 +3,8 @@ import { createRoot, hydrateRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
 
-// דף הבית מגיע מרונדר מראש ב-dist/index.html (scripts/prerender.mjs) — "מחיים" אותו במקום לצייר מחדש.
-// בשאר הנתיבים ה-HTML המוכן הוא של דף הבית, אז מציירים מאפס (והוא מוסתר עד אז — data-route ב-index.html).
+// עמודים שרונדרו מראש (scripts/prerender.mjs; <html data-prerendered="/books" וכו'>) — "מחיים" אותם במקום לצייר
+// מחדש. בנתיב שאינו תואם ל-HTML המוכן מציירים מאפס (והוא מוסתר עד אז — data-route ב-index.html).
 const container = document.getElementById('root')
 const app = (
   <StrictMode>
@@ -12,7 +12,10 @@ const app = (
   </StrictMode>
 )
 
-if (container.hasChildNodes() && window.location.pathname === '/') {
+const prerendered = document.documentElement.dataset.prerendered || '/'
+const path = window.location.pathname.replace(/\/+$/, '') || '/'
+
+if (container.hasChildNodes() && path === prerendered) {
   hydrateRoot(container, app, {
     // #419 = גבול Suspense שלא רונדר בשרת (BelowFold ב-lazy) ולכן מרונדר בדפדפן — זה בכוונה, לא תקלה.
     onRecoverableError(error) {

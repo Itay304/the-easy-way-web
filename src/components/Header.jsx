@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ChevronDown, Building2, Presentation, GraduationCap } from 'lucide-react';
+import { ChevronDown, Building2, Presentation, GraduationCap, BookOpen } from 'lucide-react';
 import { TEACHER_APP_URL, STUDENT_APP_URL } from '../lib/appLinks.js';
 import Button from './ui/Button.jsx';
 
@@ -45,7 +45,11 @@ export default function Header() {
           <img src="/logo-horizontal.svg" alt="Easylex" width="128" height="32" className="h-8 w-auto md:h-9" />
         </Link>
 
-        <nav aria-label="כניסה לאפליקציות" className="hidden items-center gap-2 md:flex">
+        <nav aria-label="ניווט ראשי" className="hidden items-center gap-2 md:flex">
+          <Button as={Link} to="/books" size="sm" variant="ghost">
+            הספרים
+          </Button>
+          <span aria-hidden="true" className="mx-1 h-6 w-px bg-ink/15" />
           {ENTRIES.map((e, i) => (
             <Button key={e.label} as="a" href={e.href} size="sm" variant={i === ENTRIES.length - 1 ? 'dark' : 'ghost'}>
               {e.label}
@@ -73,6 +77,16 @@ export default function Header() {
               className="absolute left-0 top-[calc(100%+0.5rem)] w-64 rounded-2xl border border-ink/10 bg-white p-2 shadow-xl"
             >
               <ul>
+                <li className="mb-1 border-b border-ink/10 pb-1">
+                  <Link
+                    to="/books"
+                    onClick={() => setOpen(false)}
+                    className="flex min-h-12 items-center gap-3 rounded-xl px-3 font-semibold text-ink hover:bg-mist"
+                  >
+                    <BookOpen size={20} aria-hidden="true" className="shrink-0 text-cover" />
+                    הספרים
+                  </Link>
+                </li>
                 {ENTRIES.map((e) => (
                   <li key={e.label}>
                     <a

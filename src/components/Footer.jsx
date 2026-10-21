@@ -13,6 +13,11 @@ export default function Footer() {
         <nav aria-label="קישורים בתחתית העמוד">
           <ul className="flex flex-wrap items-center justify-center gap-x-2 gap-y-1">
             <li>
+              <Link to="/books" className="inline-flex min-h-11 items-center rounded-lg px-3 font-semibold text-white underline-offset-4 hover:underline">
+                הספרים
+              </Link>
+            </li>
+            <li>
               <Link to="/terms" className="inline-flex min-h-11 items-center rounded-lg px-3 font-semibold text-white underline-offset-4 hover:underline">
                 תקנון
               </Link>

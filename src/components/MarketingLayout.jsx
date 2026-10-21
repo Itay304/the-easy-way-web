@@ -4,6 +4,8 @@ import Header from './Header.jsx';
 import Footer from './Footer.jsx';
 import A11yMenu from './A11yMenu.jsx';
 import Home from '../pages/Home.jsx';
+// עמוד הספרים לא ב-lazy — הוא מרונדר מראש ל-dist/books.html (renderToString לא מחכה ל-lazy)
+import Books from '../pages/Books.jsx';
 const Accessibility = lazy(() => import('../pages/Accessibility.jsx'));
 const LegalPage = lazy(() => import('../pages/LegalPage.jsx'));
 
@@ -30,6 +32,7 @@ export default function MarketingLayout() {
       <main id="main" className="flex-1">
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/books" element={<Books />} />
           <Route
             path="/accessibility"
             element={

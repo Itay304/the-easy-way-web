@@ -151,6 +151,9 @@ html.a11y-stop-motion *::after {
   transition: none !important;
   scroll-behavior: auto !important;
 }
+html.a11y-stop-motion .book-card:hover {
+  transform: none !important;
+}
 html.a11y-stop-motion .reveal {
   opacity: 1;
   transform: none;
