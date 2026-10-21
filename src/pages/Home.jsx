@@ -1,12 +1,11 @@
-import { useState } from 'react';
+import { lazy, Suspense, useState } from 'react';
 import Hero from '../components/home/Hero.jsx';
-import { DevicesSection, PrincipalsSection, StudentsSection, TeacherSection } from '../components/home/StorySections.jsx';
-import ContactForm from '../components/ContactForm.jsx';
-import InstallFaq from '../components/InstallFaq.jsx';
-import VideoDialog from '../components/VideoDialog.jsx';
 
 // סיפור בגלילה, רעיון אחד בכל קטע: פתיחה → תלמידים → מורה → טלפון/מחשב → מנהלים → יצירת קשר,
-// ובסוף שאלה נפתחת על ההתקנה.
+// ובסוף שאלה נפתחת על ההתקנה. רק הפתיחה בחבילה הראשית; השאר (וחלון הסרטון) נטענים מיד אחריה.
+const BelowFold = lazy(() => import('../components/home/BelowFold.jsx'));
+const VideoDialog = lazy(() => import('../components/VideoDialog.jsx'));
+
 export default function Home() {
   const [videoOpen, setVideoOpen] = useState(false);
   const openVideo = () => setVideoOpen(true);
@@ -14,13 +13,15 @@ export default function Home() {
   return (
     <>
       <Hero onWatch={openVideo} />
-      <StudentsSection onWatch={openVideo} />
-      <TeacherSection />
-      <DevicesSection onWatch={openVideo} />
-      <PrincipalsSection />
-      <ContactForm />
-      <InstallFaq />
-      <VideoDialog open={videoOpen} onClose={() => setVideoOpen(false)} />
+      {/* placeholder בגובה מסך וחצי עד שהחבילה מגיעה — כדי שהכותרת התחתונה לא תקפוץ בתוך המסך (CLS) */}
+      <Suspense fallback={<div className="min-h-[150vh]" aria-hidden="true" />}>
+        <BelowFold onWatch={openVideo} />
+      </Suspense>
+      {videoOpen && (
+        <Suspense fallback={null}>
+          <VideoDialog open onClose={() => setVideoOpen(false)} />
+        </Suspense>
+      )}
     </>
   );
 }

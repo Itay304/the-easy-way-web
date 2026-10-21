@@ -31,6 +31,9 @@
     <meta name="twitter:image" content="https://theeasywayapp.co.il/og-image.png" />
 
     <!-- PWA -->
+    <!-- ה-HTML המוכן ב-#root הוא של דף הבית: בנתיב אחר מסתירים אותו עד ש-React מצייר (main.jsx) -->
+    <script>if (location.pathname !== '/') document.documentElement.dataset.route = 'other';</script>
+    <style>html[data-route='other'] #main { visibility: hidden; }</style>
     <link rel="manifest" href="/manifest.json" />
     <!-- theme-color = רקע הכותרת (mist), כדי שסרגל הדפדפן בטלפון יתמזג איתה -->
     <meta name="theme-color" content="#E1F3EF" />

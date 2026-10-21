@@ -1,9 +1,9 @@
-import { useEffect } from 'react';
+import { lazy, Suspense, useEffect } from 'react';
 import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import Header from './Header.jsx';
 import Footer from './Footer.jsx';
 import Home from '../pages/Home.jsx';
-import Accessibility from '../pages/Accessibility.jsx';
+const Accessibility = lazy(() => import('../pages/Accessibility.jsx'));
 
 // מעבר בין עמודים מתחיל מראש העמוד (חוץ מקישור לעוגן, למשל /#contact)
 function ScrollToTop() {
@@ -28,7 +28,14 @@ export default function MarketingLayout() {
       <main id="main" className="flex-1">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/accessibility" element={<Accessibility />} />
+          <Route
+            path="/accessibility"
+            element={
+              <Suspense fallback={null}>
+                <Accessibility />
+              </Suspense>
+            }
+          />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </main>

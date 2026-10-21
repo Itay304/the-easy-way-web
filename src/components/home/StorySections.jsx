@@ -32,6 +32,8 @@ export function StudentsSection({ onWatch }) {
           <PhoneFrame className="w-[min(40vw,230px)]">
             <ScreenImage
               src="/media/phone-combo-540.webp"
+              srcSet="/media/phone-combo-270.webp 270w, /media/phone-combo-540.webp 540w"
+              sizes="(min-width: 1024px) 230px, 40vw"
               width="540"
               height="1053"
               loading="lazy"
@@ -41,6 +43,8 @@ export function StudentsSection({ onWatch }) {
           <PhoneFrame className="w-[min(40vw,230px)] -translate-y-6">
             <ScreenImage
               src="/media/phone-summary-540.webp"
+              srcSet="/media/phone-summary-270.webp 270w, /media/phone-summary-540.webp 540w"
+              sizes="(min-width: 1024px) 230px, 40vw"
               width="540"
               height="1053"
               loading="lazy"
@@ -100,6 +104,8 @@ export function DevicesSection({ onWatch }) {
           <PhoneFrame className="absolute bottom-0 right-0 w-[30%]">
             <ScreenImage
               src="/media/phone-quiz-540.webp"
+              srcSet="/media/phone-quiz-270.webp 270w, /media/phone-quiz-540.webp 540w"
+              sizes="(min-width: 1024px) 160px, 27vw"
               width="540"
               height="1053"
               loading="lazy"
