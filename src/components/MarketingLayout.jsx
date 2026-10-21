@@ -2,8 +2,10 @@ import { lazy, Suspense, useEffect } from 'react';
 import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import Header from './Header.jsx';
 import Footer from './Footer.jsx';
+import A11yMenu from './A11yMenu.jsx';
 import Home from '../pages/Home.jsx';
 const Accessibility = lazy(() => import('../pages/Accessibility.jsx'));
+const LegalPage = lazy(() => import('../pages/LegalPage.jsx'));
 
 // מעבר בין עמודים מתחיל מראש העמוד (חוץ מקישור לעוגן, למשל /#contact)
 function ScrollToTop() {
@@ -36,10 +38,27 @@ export default function MarketingLayout() {
               </Suspense>
             }
           />
+          <Route
+            path="/terms"
+            element={
+              <Suspense fallback={null}>
+                <LegalPage page="terms" />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/privacy"
+            element={
+              <Suspense fallback={null}>
+                <LegalPage page="privacy" />
+              </Suspense>
+            }
+          />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </main>
       <Footer />
+      <A11yMenu />
     </div>
   );
 }
