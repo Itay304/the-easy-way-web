@@ -44,12 +44,15 @@ function Cover({ id, name, className = '' }) {
   );
 }
 
-// "PRE-Band I · The Easy Way" — הסדרה לא נשברת באמצע השם
+// שם הסדרה ברווחים לא-שבירים — לא נשבר באמצע במצב רגיל
+const SERIES = 'The Easy Way';
+
+// "PRE-Band I · The Easy Way"
 function BookName({ name }) {
-  const [title, series] = name.split(' · ');
+  const [title] = name.split(' · ');
   return (
     <bdi lang="en">
-      {title} · <span className="whitespace-nowrap">{series}</span>
+      {title} · {SERIES}
     </bdi>
   );
 }
@@ -63,7 +66,8 @@ function BookCard({ book, step }) {
       <div className="w-28 shrink-0 sm:w-36 lg:w-full">
         <Cover id={book.id} name={book.name} />
       </div>
-      <div className="flex flex-1 flex-col">
+      {/* min-w-0: עמודת הטקסט יכולה להצטמצם (אחרת בהגדלת טקסט היא דוחפת את הכרטיס מעבר למסך) */}
+      <div className="flex min-w-0 flex-1 flex-col">
         <span
           className="mb-2 flex h-8 w-8 items-center justify-center rounded-full text-body font-extrabold text-white"
           style={{ backgroundColor: book.accent }}
@@ -71,7 +75,7 @@ function BookCard({ book, step }) {
         >
           {step}
         </span>
-        <h3 className="text-h3 font-extrabold text-ink">
+        <h3 className="text-h3 font-extrabold text-ink break-words">
           <span className="sr-only">שלב {step}: </span>
           <BookName name={book.name} />
         </h3>
@@ -115,9 +119,10 @@ export default function Books() {
       {/* 1 — פתיחה */}
       <section aria-labelledby="books-title" className="bg-mist">
         <div className="mx-auto max-w-4xl px-4 py-14 text-center sm:px-6 sm:py-20">
-          <h1 id="books-title" className="text-display font-extrabold tracking-tight text-ink text-balance">
-            {/* "The Easy Way" לא נשבר באמצע, והמקף צמוד למילה שלפניו (רווח לא-שביר) */}
-            ספרי <bdi lang="en" className="whitespace-nowrap">The Easy Way</bdi>{' '}— הדרך שלך לבגרות באנגלית
+          <h1 id="books-title" className="text-display font-extrabold tracking-tight text-ink text-balance break-words">
+            {/* "The Easy Way" ברווחים לא-שבירים (לא נשבר באמצע), והמקף צמוד למילה שלפניו. break-words: בהגדלת טקסט
+                קיצונית השם יישבר במקום לדחוף את הדף הצידה */}
+            ספרי <bdi lang="en">{SERIES}</bdi>{' '}— הדרך שלך לבגרות באנגלית
           </h1>
           <p className="mx-auto mt-5 max-w-2xl text-lead text-ink/85 text-pretty">
             ארבעה ספרים, מהבסיס ועד 5 יחידות. כל מילה מהרשימות של משרד החינוך — במשפט אמיתי, עם תרגום מלא לעברית.
