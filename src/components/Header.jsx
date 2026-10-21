@@ -16,8 +16,7 @@ export default function Header() {
       מ-md ומעלה — שורה אחת כמו קודם. */}
       <div className="mx-auto max-w-6xl px-4 sm:px-6 py-3 md:h-16 md:py-0 flex flex-col md:flex-row items-center md:justify-between gap-3 md:gap-0">
         <Link to="/" className="flex items-center gap-2 self-start md:self-auto shrink-0">
-          <img src="/logo-symbol.svg" alt="" aria-hidden="true" className="h-8 w-8 md:h-9 md:w-9 shrink-0" />
-          <span className="text-body md:text-body-lg font-bold text-brand-text whitespace-nowrap">Easylex</span>
+          <img src="/logo-horizontal.svg" alt="Easylex" className="h-8 md:h-9 w-auto shrink-0" />
         </Link>
         {/* סדר: מנהל / מורה / תלמיד — המנהל הוא מי שמחליט אם לרכוש. */}
         <nav className="flex items-center gap-2 sm:gap-3 w-full md:w-auto justify-center md:justify-end">
