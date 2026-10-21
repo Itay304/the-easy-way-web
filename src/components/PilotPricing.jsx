@@ -16,7 +16,7 @@ const INCLUDED = [
 const MAILTO_HREF =
   'mailto:silverquilleducation@gmail.com' +
   '?subject=' +
-  encodeURIComponent('הצטרפות לפיילוט EasyLex') +
+  encodeURIComponent('הצטרפות לפיילוט Easylex') +
   '&body=' +
   ['שם המוסד:', 'שם איש הקשר:', 'טלפון:', 'אימייל מוסדי:'].map(encodeURIComponent).join('%0D');
 

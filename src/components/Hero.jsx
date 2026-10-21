@@ -4,19 +4,14 @@ import Button from './ui/Button.jsx';
 
 export default function Hero() {
   const isNarrow = useIsNarrow();
-  const teacherLabel = isNarrow ? 'אני מורה — התקן את EasyLex' : 'אני מורה — התחל עכשיו';
-  const studentLabel = isNarrow ? 'אני תלמיד — התקן את EasyLex' : 'כניסת תלמיד';
+  const teacherLabel = isNarrow ? 'אני מורה — התקן את Easylex' : 'אני מורה — התחל עכשיו';
+  const studentLabel = isNarrow ? 'אני תלמיד — התקן את Easylex' : 'כניסת תלמיד';
 
   return (
     <section className="bg-gradient-to-b from-brand-turquoise/10 to-white">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 py-16 sm:py-24 text-center">
-        <img
-          src="/icons/icon-192.png"
-          alt="EasyLex — לוגו"
-          className="mx-auto h-20 w-20 rounded-2xl shadow-md mb-6"
-        />
-        <h1 className="text-h1 sm:text-5xl font-extrabold text-brand-text leading-tight">
-          EasyLex
+        <h1>
+          <img src="/logo.svg" alt="Easylex" className="mx-auto w-60 sm:w-80 h-auto" />
         </h1>
         <p className="mt-4 text-body-lg sm:text-h3 text-brand-grey-text max-w-2xl mx-auto">
           לימוד אוצר מילים באנגלית — בדרך הנכונה

@@ -3,8 +3,8 @@ export default function Footer() {
     <footer className="bg-brand-text text-white/80 mt-24">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 py-10 flex flex-col sm:flex-row items-center justify-between gap-4">
         <div className="flex items-center gap-3">
-          <img src="/icons/icon-192.png" alt="EasyLex" className="h-8 w-8 rounded-lg" />
-          <span className="font-bold text-white">EasyLex by The Easy Way</span>
+          <img src="/favicon.svg" alt="" aria-hidden="true" className="h-8 w-8 rounded-lg" />
+          <span className="font-bold text-white">Easylex by The Easy Way</span>
         </div>
         <p className="text-caption text-center">
           © {new Date().getFullYear()} The Easy Way — לימוד אוצר מילים באנגלית לבתי ספר
