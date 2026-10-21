@@ -85,7 +85,8 @@ function BookCard({ book, step }) {
           size="sm"
           variant="dark"
           className="mt-4 self-start"
-          aria-label={`לרכישת ${book.name} ב-bookpod (נפתח בחלון חדש)`}
+          // השם הנגיש מתחיל בטקסט הגלוי (WCAG 2.5.3), ואחריו שם הספר וההודעה על חלון חדש
+          aria-label={`לרכישה ב-bookpod: ${book.name} (נפתח בחלון חדש)`}
         >
           לרכישה ב-bookpod
           <ExternalLink size={16} aria-hidden="true" />
@@ -125,8 +126,12 @@ export default function Books() {
       </section>
 
       {/* 2 — המדף: התקדמות 1→4 (שלבים במחשב, רשימה במובייל) */}
-      <section aria-label="ארבעת הספרים לפי הסדר" className="bg-white">
+      <section aria-labelledby="shelf-title" className="bg-white">
         <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 sm:py-20">
+          {/* כותרת לקוראי מסך בלבד — שומרת על סדר הכותרות (h1 → h2 → h3 בכרטיסים) */}
+          <h2 id="shelf-title" className="sr-only">
+            ארבעת הספרים לפי הסדר
+          </h2>
           <ol className="grid gap-5 lg:grid-cols-4 lg:gap-6">
             {BOOKS.map((b, i) => (
               <BookCard key={b.id} book={b} step={i + 1} />
