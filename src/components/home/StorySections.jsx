@@ -1,4 +1,3 @@
-import { Play } from 'lucide-react';
 import Button from '../ui/Button.jsx';
 import { LaptopFrame, PhoneFrame, ScreenImage } from '../ui/DeviceFrames.jsx';
 import LazyVideo from '../ui/LazyVideo.jsx';
@@ -12,21 +11,14 @@ const DemoButton = () => (
   </Button>
 );
 
-const WatchButton = ({ onWatch }) => (
-  <Button type="button" variant="secondary" onClick={onWatch}>
-    <Play size={20} aria-hidden="true" className="fill-current" />
-    צפו בסרטון (1:30)
-  </Button>
-);
-
 // 2 — תלמידים: רצף בתוך התרגול, ומסך הסיכום החגיגי
-export function StudentsSection({ onWatch }) {
+export function StudentsSection() {
   return (
     <Section
       titleId="students-title"
       title="תלמידים חוזרים לתרגל — כי זה כיף."
       sub="סבבים קצרים, סוג תרגול אחר כל כמה מילים, ורצף ותגים שמחזירים אותם כל יום."
-      cta={<WatchButton onWatch={onWatch} />}
+      cta={<DemoButton />}
       visual={
         <div className="flex items-end justify-center gap-4 pt-6 sm:gap-6">
           <PhoneFrame className="w-[min(40vw,230px)]">
@@ -71,6 +63,7 @@ export function TeacherSection() {
         <LaptopFrame className="w-full max-w-[560px]">
           <LazyVideo
             name="dashboard-v1"
+            pauseButton
             poster="/media/dashboard-v1-poster.webp"
             label="לוח הבקרה של המורה: פעילות שבועית, תלמידים לא פעילים ומפת חום של המילים הקשות בכיתה"
           />
@@ -81,13 +74,13 @@ export function TeacherSection() {
 }
 
 // 4 — טלפון או מחשב: אותו תרגול בדפדפן במחשב, ולצידו הטלפון
-export function DevicesSection({ onWatch }) {
+export function DevicesSection() {
   return (
     <Section
       titleId="devices-title"
       title="בטלפון או במחשב — מה שיש בכיתה."
       sub="אין טלפונים בבית הספר? מתרגלים ישר מהדפדפן במחשב."
-      cta={<WatchButton onWatch={onWatch} />}
+      cta={<DemoButton />}
       visual={
         <div className="relative w-full max-w-[560px] pb-10">
           <LaptopFrame className="mr-auto w-[88%]">

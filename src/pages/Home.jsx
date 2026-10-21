@@ -15,7 +15,7 @@ export default function Home() {
       <Hero onWatch={openVideo} />
       {/* placeholder בגובה מסך וחצי עד שהחבילה מגיעה — כדי שהכותרת התחתונה לא תקפוץ בתוך המסך (CLS) */}
       <Suspense fallback={<div className="min-h-[150vh]" aria-hidden="true" />}>
-        <BelowFold onWatch={openVideo} />
+        <BelowFold />
       </Suspense>
       {videoOpen && (
         <Suspense fallback={null}>
