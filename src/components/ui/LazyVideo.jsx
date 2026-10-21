@@ -1,9 +1,9 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import { Pause, Play } from 'lucide-react';
 import useInView from '../../hooks/useInView.js';
-import usePrefersReducedMotion from '../../hooks/usePrefersReducedMotion.js';
+import useVideoPaused from '../../hooks/useVideoPaused.js';
 
-// כפתור עצירה/הפעלה לסרטון שמתנגן לבד (חובה לפי WCAG 2.2.2 — תנועה אוטומטית ארוכה מ-5 שניות)
+// כפתור עצירה/הפעלה לסרטון (חובה לפי WCAG 2.2.2 — תנועה אוטומטית ארוכה מ-5 שניות).
 // tone: dark — על תמונה בהירה; glass — על רקע כהה (פתיחה)
 export function PauseButton({ paused, onToggle, className = '', what = 'הסרטון', tone = 'dark' }) {
   const label = paused ? `הפעלת ${what}` : `עצירת ${what}`;
@@ -20,25 +20,23 @@ export function PauseButton({ paused, onToggle, className = '', what = 'הסרט
   );
 }
 
-// קליפ שקט בלופ מתוך האפליקציה האמיתית. נטען רק כשהוא מתקרב למסך (preload="none" עד אז),
-// מתנגן רק כשהוא נראה, ונעצר כשיוצאים ממנו. בלי ניגון אוטומטי עם "הפחתת תנועה" (מערכת או תפריט הנגישות):
-// רואים את תמונת הפתיחה ואפשר להפעיל ידנית עם הפקדים.
-// paused — עצירה מבחוץ (כפתור משותף); pauseButton — כפתור עצירה משלו בפינת הקליפ.
-export default function LazyVideo({ name, poster, label, className = '', eager = false, paused = false, pauseButton = false }) {
+// קליפ שקט בלופ מתוך האפליקציה האמיתית, בתוך מסגרת מכשיר. לעולם בלי פקדים מובנים של הדפדפן —
+// רק כפתור עצירה/הפעלה שלנו. נטען רק כשהוא מתקרב למסך (preload="none" עד אז), מתנגן רק כשהוא נראה.
+// paused — שליטה מבחוץ (כפתור משותף בפתיחה); בלי paused — pauseButton מציג כפתור משלו בפינה.
+export default function LazyVideo({ name, poster, label, className = '', eager = false, paused: controlled, pauseButton = false }) {
   const videoRef = useRef(null);
-  const reduced = usePrefersReducedMotion();
-  const [ownPaused, setOwnPaused] = useState(false);
+  const [ownPaused, toggleOwn] = useVideoPaused();
   const [nearRef, near] = useInView({ rootMargin: '300px' });
   const [visibleRef, visible] = useInView({ once: false, threshold: 0.3 });
   const load = eager || near;
-  const stopped = paused || ownPaused;
+  const paused = controlled ?? ownPaused;
 
   useEffect(() => {
     const v = videoRef.current;
-    if (!v || !load || reduced) return;
-    if (visible && !stopped) v.play().catch(() => {});
+    if (!v || !load) return;
+    if (visible && !paused) v.play().catch(() => {});
     else v.pause();
-  }, [load, visible, reduced, stopped]);
+  }, [load, visible, paused]);
 
   return (
     <div ref={nearRef} className={`absolute inset-0 ${className}`}>
@@ -51,15 +49,14 @@ export default function LazyVideo({ name, poster, label, className = '', eager =
           loop
           playsInline
           preload="none"
-          controls={reduced}
           aria-label={label}
         >
           {load && <source src={`/media/${name}.webm`} type="video/webm" />}
           {load && <source src={`/media/${name}.mp4`} type="video/mp4" />}
         </video>
       </div>
-      {pauseButton && !reduced && (
-        <PauseButton paused={ownPaused} onToggle={() => setOwnPaused((p) => !p)} className="absolute bottom-3 left-3" />
+      {pauseButton && controlled === undefined && (
+        <PauseButton paused={ownPaused} onToggle={toggleOwn} className="absolute bottom-3 left-3" />
       )}
     </div>
   );
