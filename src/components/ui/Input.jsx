@@ -4,14 +4,14 @@ export default function Input({ label, className = '', id, name, ...rest }) {
   return (
     <div className="w-full">
       {label && (
-        <label htmlFor={inputId} className="block text-caption font-semibold text-brand-grey-text mb-1">
+        <label htmlFor={inputId} className="mb-1 block font-semibold text-ink">
           {label}
         </label>
       )}
       <input
         id={inputId}
         name={name}
-        className={`w-full rounded-xl border border-black/10 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-brand-turquoise ${className}`}
+        className={`min-h-12 w-full rounded-xl border border-ink/25 bg-white px-4 py-3 text-ink focus:border-ink ${className}`}
         {...rest}
       />
     </div>

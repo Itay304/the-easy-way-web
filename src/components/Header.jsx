@@ -1,53 +1,93 @@
+import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Building2 } from 'lucide-react';
-import useIsNarrow from '../hooks/useIsNarrow.js';
+import { ChevronDown, Building2, Presentation, GraduationCap } from 'lucide-react';
 import { TEACHER_APP_URL, STUDENT_APP_URL } from '../lib/appLinks.js';
 import Button from './ui/Button.jsx';
 
+// כניסה לאפליקציות. סדר: מנהל / מורה / תלמיד — המנהל הוא מי שמחליט אם לרכוש.
+// TODO: המנהל מופנה כרגע לאותו teacher.theeasywayapp.co.il — ההפרדה היא ב-role, לא ב-URL.
+const ENTRIES = [
+  { href: TEACHER_APP_URL, label: 'כניסת מנהל', icon: Building2 },
+  { href: TEACHER_APP_URL, label: 'אני מורה — התחל עכשיו', icon: Presentation },
+  { href: STUDENT_APP_URL, label: 'כניסת תלמיד', icon: GraduationCap },
+];
+
+// כותרת דביקה בשורה אחת (56px במובייל). רקע mist — ולכן theme-color ב-index.html הוא #E1F3EF,
+// כדי שסרגל הדפדפן בטלפון יתמזג איתה. במובייל הכניסות בתפריט "כניסה"; מ-md הן בשורה.
 export default function Header() {
-  const isNarrow = useIsNarrow();
-  const teacherLabel = isNarrow ? 'אני מורה — התקן את Easylex' : 'אני מורה — התחל עכשיו';
-  const studentLabel = isNarrow ? 'אני תלמיד — התקן את Easylex' : 'כניסת תלמיד';
+  const [open, setOpen] = useState(false);
+  const menuRef = useRef(null);
+  const buttonRef = useRef(null);
+
+  useEffect(() => {
+    if (!open) return undefined;
+    function onKey(e) {
+      if (e.key === 'Escape') {
+        setOpen(false);
+        buttonRef.current?.focus();
+      }
+    }
+    function onClick(e) {
+      if (!menuRef.current?.contains(e.target) && !buttonRef.current?.contains(e.target)) setOpen(false);
+    }
+    document.addEventListener('keydown', onKey);
+    document.addEventListener('pointerdown', onClick);
+    return () => {
+      document.removeEventListener('keydown', onKey);
+      document.removeEventListener('pointerdown', onClick);
+    };
+  }, [open]);
 
   return (
-    <header className="sticky top-0 z-40 bg-white/90 backdrop-blur border-b border-black/5">
-      {/* מתחת ל-768px (isNarrow, אותו סף בדיוק כמו useIsNarrow.js): לוגו
-      בשורה אחת + שורת כפתורים נפרדת מתחתיו, כדי שאף אחד מהם לא יידחס/יישבר.
-      מ-md ומעלה — שורה אחת כמו קודם. */}
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 py-3 md:h-16 md:py-0 flex flex-col md:flex-row items-center md:justify-between gap-3 md:gap-0">
-        <Link to="/" className="flex items-center gap-2 self-start md:self-auto shrink-0">
-          <img src="/logo-horizontal.svg" alt="Easylex" className="h-8 md:h-9 w-auto shrink-0" />
+    <header className="sticky top-0 z-40 border-b border-ink/10 bg-mist">
+      <div className="mx-auto flex h-14 max-w-6xl items-center justify-between gap-3 px-4 sm:px-6 md:h-16">
+        <Link to="/" className="flex min-h-11 items-center shrink-0" aria-label="Easylex — דף הבית">
+          <img src="/logo-horizontal.svg" alt="Easylex" width="128" height="32" className="h-8 w-auto md:h-9" />
         </Link>
-        {/* סדר: מנהל / מורה / תלמיד — המנהל הוא מי שמחליט אם לרכוש. */}
-        <nav className="flex items-center gap-2 sm:gap-3 w-full md:w-auto justify-center md:justify-end">
-          {!isNarrow && (
-            // TODO: כרגע מפנה לאותו teacher.theeasywayapp.co.il — המנהל נכנס
-            // עם החשבון שלו ורואה ממשק מנהל בתוך אותה אפליקציה. בעתיד יהיה
-            // דף/כתובת נפרדים למנהל; לעת עתה זה מספיק כי ההפרדה היא ב-role,
-            // לא ב-URL.
-            <Button as="a" href={TEACHER_APP_URL} variant="ghost" size="sm" className="whitespace-nowrap">
-              <Building2 size={16} />
-              כניסת מנהל
+
+        <nav aria-label="כניסה לאפליקציות" className="hidden items-center gap-2 md:flex">
+          {ENTRIES.map((e, i) => (
+            <Button key={e.label} as="a" href={e.href} size="sm" variant={i === ENTRIES.length - 1 ? 'dark' : 'ghost'}>
+              {e.label}
             </Button>
-          )}
-          <Button
-            as="a"
-            href={TEACHER_APP_URL}
-            variant="ghost"
-            size="sm"
-            className="flex-1 md:flex-none !text-brand-turquoise-dark hover:!bg-brand-turquoise/10 md:whitespace-nowrap"
-          >
-            {teacherLabel}
-          </Button>
-          <Button
-            as="a"
-            href={STUDENT_APP_URL}
-            size="sm"
-            className="flex-1 md:flex-none md:whitespace-nowrap"
-          >
-            {studentLabel}
-          </Button>
+          ))}
         </nav>
+
+        <div className="relative md:hidden">
+          <Button
+            ref={buttonRef}
+            type="button"
+            size="sm"
+            variant="dark"
+            aria-expanded={open}
+            aria-controls="entry-menu"
+            onClick={() => setOpen((o) => !o)}
+          >
+            כניסה
+            <ChevronDown size={18} aria-hidden="true" className={`transition-transform ${open ? 'rotate-180' : ''}`} />
+          </Button>
+          {open && (
+            <div
+              id="entry-menu"
+              ref={menuRef}
+              className="absolute left-0 top-[calc(100%+0.5rem)] w-64 rounded-2xl border border-ink/10 bg-white p-2 shadow-xl"
+            >
+              <ul>
+                {ENTRIES.map((e) => (
+                  <li key={e.label}>
+                    <a
+                      href={e.href}
+                      className="flex min-h-12 items-center gap-3 rounded-xl px-3 font-semibold text-ink hover:bg-mist"
+                    >
+                      <e.icon size={20} aria-hidden="true" className="shrink-0 text-cover" />
+                      {e.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </div>
       </div>
     </header>
   );

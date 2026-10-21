@@ -1,32 +1,27 @@
-import Hero from '../components/Hero.jsx';
-import AudienceCards from '../components/AudienceCards.jsx';
-import HowItWorks from '../components/HowItWorks.jsx';
-import Benefits from '../components/Benefits.jsx';
-import PwaInstallGuide from '../components/PwaInstallGuide.jsx';
-import PilotPricing from '../components/PilotPricing.jsx';
-import ContactForm from '../components/ContactForm.jsx';
+import { lazy, Suspense, useState } from 'react';
+import Hero from '../components/home/Hero.jsx';
+
+// סיפור בגלילה, רעיון אחד בכל קטע: פתיחה → תלמידים → מורה → טלפון/מחשב → מנהלים → יצירת קשר,
+// ובסוף שאלה נפתחת על ההתקנה. רק הפתיחה בחבילה הראשית; השאר (וחלון הסרטון) נטענים מיד אחריה.
+const BelowFold = lazy(() => import('../components/home/BelowFold.jsx'));
+const VideoDialog = lazy(() => import('../components/VideoDialog.jsx'));
 
 export default function Home() {
+  const [videoOpen, setVideoOpen] = useState(false);
+  const openVideo = () => setVideoOpen(true);
+
   return (
     <>
-      <Hero />
-      <AudienceCards />
-      <HowItWorks />
-      <Benefits />
-
-      <div className="hidden md:block">
-        <PwaInstallGuide />
-      </div>
-      <section className="md:hidden bg-brand-grey-light py-16 text-center px-4">
-        <h2 className="text-h2 font-bold text-center text-brand-text mb-2">התקן את Easylex בחינם</h2>
-        <p className="text-brand-grey-text max-w-sm mx-auto">
-          לחץ על הכפתור המתאים ← עקוב אחרי ההוראות ← האפליקציה מותקנת!
-        </p>
-      </section>
-
-      <PilotPricing />
-
-      <ContactForm />
+      <Hero onWatch={openVideo} />
+      {/* placeholder בגובה מסך וחצי עד שהחבילה מגיעה — כדי שהכותרת התחתונה לא תקפוץ בתוך המסך (CLS) */}
+      <Suspense fallback={<div className="min-h-[150vh]" aria-hidden="true" />}>
+        <BelowFold onWatch={openVideo} />
+      </Suspense>
+      {videoOpen && (
+        <Suspense fallback={null}>
+          <VideoDialog open onClose={() => setVideoOpen(false)} />
+        </Suspense>
+      )}
     </>
   );
 }
