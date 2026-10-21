@@ -11,7 +11,7 @@ const VARIANT_CLASSES = {
 
 const SIZE_CLASSES = {
   sm: 'min-h-11 px-4 text-body',
-  lg: 'min-h-14 px-7 text-[20px]',
+  lg: 'min-h-14 px-7 text-[1.25rem]', // 20px מודגש = טקסט גדול (WCAG)
 };
 
 export default function Button({

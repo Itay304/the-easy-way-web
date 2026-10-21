@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { useForm } from '@formspree/react';
 import Input from './ui/Input.jsx';
 import Button from './ui/Button.jsx';
@@ -80,6 +81,13 @@ export default function ContactForm() {
               <Button type="submit" disabled={state.submitting} className="w-full">
                 {state.submitting ? 'שולח...' : 'שלח'}
               </Button>
+
+              <p className="text-center text-caption text-ink/80">
+                בשליחת הטופס אני מאשר/ת את{' '}
+                <Link to="/privacy" className="font-semibold text-ink underline underline-offset-4">
+                  מדיניות הפרטיות
+                </Link>
+              </p>
 
               {formError && (
                 <p role="alert" className="text-center text-caption font-semibold text-brand-error-dark">
